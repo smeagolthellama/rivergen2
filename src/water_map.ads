@@ -1,3 +1,6 @@
+generic
+   type Real is digits <>;
+   type Granule is range <>;
 package Water_Map is
 
    type Cell_Flags_all is
@@ -7,11 +10,10 @@ package Water_Map is
 
    type Dimension is (X, Y);
 
-   type Vector is array (Dimension) of Float;
+   type Vector is array (Dimension) of Real;
 
    type Map_Cell (Flags : Cell_Flags := Boring) is record
-      Land_Height : Float;
-      -- Float is only guaranteed to provide digits 6. Should probably use own type
+      Land_Height : Real;
       case Flags is
          when Has_Water | Is_Water_Source | Boring =>
             case Flags is
@@ -19,10 +21,10 @@ package Water_Map is
                   Velocity       : Vector;
                   Delta_Velocity : Vector;
 
-                  Water_Depth : Float;
+                  Water_Depth : Real;
                   case Flags is
                      when Has_Water =>
-                        Delta_Water_Depth : Float;
+                        Delta_Water_Depth : Real;
                      when others =>
                         null;
                   end case;
@@ -33,5 +35,7 @@ package Water_Map is
             null;
       end case;
    end record;
+
+   type Water_Map_Type is array (Granule,Granule) of Map_Cell;
 
 end Water_Map;
