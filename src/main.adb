@@ -5,6 +5,7 @@ with Gtk.Label;       use Gtk.Label;
 with Gtk.Widget;      use Gtk.Widget;
 with Gtk.Main;
 with Gtk.Window;      use Gtk.Window;
+with Gtk.Image;       use Gtk.Image;
 
 procedure Main is
 
