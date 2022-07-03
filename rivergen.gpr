@@ -2,13 +2,26 @@ with "gtkada";
 
 project Rivergen is
 
-   for Source_Dirs use ("src");
+   for Source_Dirs use ("src/**", "doc");
    for Object_Dir use "obj";
    for Main use ("main.adb");
 
    package Ide is
       for Vcs_Kind use "git";
+      for Vcs_Repository_Root use ".";
    end Ide;
+
+   package Compiler is
+      for Switches ("ada") use ("-gnatf", "-gnato", "-fstack-check", "-g", "-gnata", "-gnat12", "-gnatVa", "-gnaty3aAbBdefiIlk");
+   end Compiler;
+
+   package Linker is
+      for Switches ("ada") use ("-g");
+   end Linker;
+
+   package Documentation is
+      for Documentation_Dir use "doc";
+   end Documentation;
 
 end Rivergen;
 
