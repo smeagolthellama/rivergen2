@@ -20,7 +20,8 @@ project Rivergen is
    end Linker;
 
    package Documentation is
-      for Documentation_Dir use "doc";
+      for Documentation_Dir use "doc/gnatdoc";
+      for Ignored_Subprojects use ("gtkada");
    end Documentation;
 
 end Rivergen;
