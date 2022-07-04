@@ -6,6 +6,7 @@ with Gtk.Widget;      use Gtk.Widget;
 with Gtk.Main;
 with Gtk.Window;      use Gtk.Window;
 with Gtk.Image;       use Gtk.Image;
+with Water_Map;
 
 procedure Main is
 
